@@ -9,7 +9,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Date;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class jsonParser {
     static final String URL = "https://bootcamp-training-files.cfapps.io/week1/week1-stocks.json";
@@ -31,13 +34,13 @@ public class jsonParser {
             } in .close();
 
             JSONArray jsonArray= new JSONArray(response.toString());
-            for(int i=0;i<4;i++){
+            for (int i=0;i<jsonArray.length();i++) {
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String symbol = jsonObject.getString("symbol");
-                int price= jsonObject.getInt("price");
+                Double price= jsonObject.getDouble("price");
                 int volume=jsonObject.getInt("volume");
-                //Date dateString = jsonObject.getDate("date");
-                //mySQLConnector.saveJSON(symbol, price, dateString, volume);
+                String date = jsonObject.getString("date");
+                mySQLConnector.insertRow(symbol, price, date, volume);
             }
 
         } catch (MalformedURLException e) {
@@ -47,11 +50,5 @@ public class jsonParser {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-    }
-
-    public static String formatDate(String date) {
-        String[] format = date.split("T");
-        String formatDate = format[0];
-        return formatDate;
     }
 }
