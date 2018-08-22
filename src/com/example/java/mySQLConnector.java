@@ -9,11 +9,12 @@ public class mySQLConnector {
     static final String DB_URL = "jdbc:mysql://localhost:3306/stock?useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
     static final String USER = "root";
     static final String PASS = "solstice123";
+    static stockInfo myStock;
 
     public static void main(String[] args) throws ParseException {
         getConnection();
-        refreshTable();
-        //getMax("2018-06-22");
+        //refreshTable();
+        queryMax("2018-06-22");
     }
 
 
@@ -22,7 +23,6 @@ public class mySQLConnector {
         Statement stmt = null;
         try {
             Class.forName(JDBC_DRIVER);
-            System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
@@ -69,12 +69,13 @@ public class mySQLConnector {
 
 
 
-    public static void getMax(String date) throws ParseException {
+    public static void queryMax(String inputDate) throws ParseException {
         Connection conn = getConnection();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        java.util.Date formatDate = format.parse(date);
+        java.util.Date formatDate = format.parse(inputDate);
         java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
-        String query = "SELECT max(price) from stockTable";
+        System.out.println(sqlDate);
+        String query = "SELECT max(price), min(price), sum(price) from stockTable WHERE date = " + inputDate;
         executeQuery(conn, query);
 
     }
@@ -86,20 +87,21 @@ public class mySQLConnector {
             if(rs.next())
                 output = rs.getString(1);
             System.out.println(output);
+            myStock.setMax(Double.valueOf(output));
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public static void getMin() {
+    public static void queryMin() {
         Connection conn = getConnection();
         String query = "SELECT MIN(price) from stocktable" +
                 "WHERE date = \"2018-06-22\";";
         executeQuery(conn, query);
     }
 
-    public static void getTotal() {
+    public static void querySum() {
         Connection conn = getConnection();
         String query = "SELECT SUM(price) from stocktable" +
                 "WHERE date = \"2018-06-22\";";
