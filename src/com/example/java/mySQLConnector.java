@@ -9,8 +9,8 @@ public class mySQLConnector {
     static final String PASS = "solstice123";
 
     public static void main(String[] args) {
-        //refreshQuery();
         getConnection();
+        refreshTable();
     }
 
 
@@ -30,14 +30,14 @@ public class mySQLConnector {
     }
 
 
-    public static void saveJSON(String symbol, Integer price, String date, Integer volume) {
+    public static void saveJSON(String symbol, Integer price, Date date, Integer volume) {
         Connection conn = getConnection();
         String query = " insert into stockTable (symbol, price, date, volume) "
                + "values (?, ?, ?, ?)";
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, symbol);
             stmt.setInt(2, price);
-            stmt.setString(3, date);
+            stmt.setDate(3, date);
             stmt.setInt(4, volume);
             stmt.execute();
             conn.close();
@@ -46,11 +46,9 @@ public class mySQLConnector {
         }
     }
 
-
-    public static void refreshQuery() {
+    public static void refreshTable() {
         Connection conn = getConnection();
-        String query = " DELETE rows FROM stockTable" +
-                "WHERE symbol IS NOT NULL";
+        String query = "DELETE from stockTable";
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.execute();
             conn.close();
@@ -58,5 +56,21 @@ public class mySQLConnector {
             e.printStackTrace();
         }
     }
+
+
+
+    public static void getInfo() {
+        Connection conn = getConnection();
+        String query = "SELECT MAX(price) from stocktable" +
+                "WHERE date = \"2018-06-22\";";
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.execute();
+            System.out.println((stmt));
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
 
