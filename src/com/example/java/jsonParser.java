@@ -9,6 +9,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class jsonParser {
 
@@ -18,8 +22,10 @@ public class jsonParser {
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             int responseCode = con.getResponseCode();
+
             System.out.println("\nSending 'GET' request to URL : " + url);
             System.out.println("Response Code : " + responseCode);
+
             BufferedReader in =new BufferedReader(
                     new InputStreamReader(con.getInputStream()));
             String inputLine;
@@ -27,22 +33,20 @@ public class jsonParser {
             while ((inputLine = in.readLine()) != null) {
                 response.append(inputLine);
             } in .close();
-            //System.out.println(response);
 
 
             JSONArray jsonArray= new JSONArray(response.toString());
-            System.out.println(jsonArray);
-            for(int i=0;i<jsonArray.length();i++){
-                //get the JSON Object
+            for(int i=0;i<4;i++){
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
                 String symbol = jsonObject.getString("symbol");
                 int price= jsonObject.getInt("price");
                 int volume=jsonObject.getInt("volume");
-                String date= jsonObject.getString("date");
+                String dateString = jsonObject.getString("date");
+                mySQLConnector.saveJSON(symbol, price, dateString, volume);
                 System.out.println(symbol);
                 System.out.println(price);
                 System.out.println(volume);
-                System.out.println(date);
+                System.out.println(dateString);
             }
 
         } catch (MalformedURLException e) {

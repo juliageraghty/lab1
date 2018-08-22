@@ -11,58 +11,44 @@ public class mySQLConnector {
     static final String PASS = "solstice123";
 
     public static void main(String[] args) {
+        getConnection();
+    }
+
+
+    public static Connection getConnection() {
         Connection conn = null;
         Statement stmt = null;
-        try{
-            //STEP 2: Register JDBC driver
+        try {
             Class.forName(JDBC_DRIVER);
 
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-
-            //STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            stmt = conn.createStatement();
-            String sql;
-            sql = "SELECT symbol, price, volume, date FROM stockTable";
-            ResultSet rs = stmt.executeQuery(sql);
-
-            //STEP 5: Extract data from result set
-            while(rs.next()){
-                //Retrieve by column name
-                String symbol  = rs.getString("symbol");
-                int price = rs.getInt("price");
-                int volume = rs.getInt("volume");
-                Date date = rs.getDate("date");
-
-                //Display values
-                System.out.print("Symbol: " + symbol);
-                System.out.print(", Price: " + price);
-                System.out.print(", Volume: " + volume);
-                System.out.println(", Date: " + date);
-            }
-            rs.close();
-            stmt.close();
-            conn.close();
-        }catch(SQLException se){
-            se.printStackTrace();
-        }catch(Exception e){
+            conn = DriverManager.getConnection(DB_URL, USER, PASS);
+        } catch (ClassNotFoundException e) {
             e.printStackTrace();
-        }finally{
-            try{
-                if(stmt!=null)
-                    stmt.close();
-            }catch(SQLException se2){
-            }
-            try{
-                if(conn!=null)
-                    conn.close();
-            }catch(SQLException se){
-                se.printStackTrace();
-            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-        System.out.println("Goodbye!");
+        return conn;
+    }
+
+
+    public static void saveJSON(String symbol, Integer price, String date, Integer volume) {
+        Connection conn = getConnection();
+        String query = " insert into stockTable (symbol, price, date, volume) "
+               + "values (?, ?, ?, ?)";
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            stmt.setString(1, symbol);
+            stmt.setInt(2, price);
+            stmt.setString(3, date);
+            stmt.setInt(4, volume);
+
+            stmt.execute();
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 }
 
