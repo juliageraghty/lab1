@@ -3,17 +3,25 @@ package com.example.java;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 public class mySQLConnector {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/stock?useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
     static final String USER = "root";
     static final String PASS = "solstice123";
-    static stockInfo myStock;
+    static final ArrayList<stockInfo> stockInfoArrayList = new ArrayList<stockInfo>();
 
     public static void main(String[] args) throws ParseException {
         getConnection();
         queryInfo("2018-06-22");
+
+        for (int i = 0; i < stockInfoArrayList.size(); i++) {
+            System.out.print("SYMBOL: " + stockInfoArrayList.get(i).symbol + " ");
+            System.out.print("MAX: " + stockInfoArrayList.get(i).max + " ");
+            System.out.print("MIN: " + stockInfoArrayList.get(i).min + " ");
+            System.out.print("TOTAL VOLUME: " + stockInfoArrayList.get(i).sum + " " + "\n");
+        }
     }
 
 
@@ -84,10 +92,11 @@ public class mySQLConnector {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 String symbol = rs.getString("SYMBOL");
-                String max = rs.getString("MAX(PRICE)");
-                String min = rs.getString("MIN(PRICE)");
-                String sum = rs.getString("totalVolume");
-                System.out.println("SYMBOL: " + symbol + " MAX: " + max + " MIN : " + min + " TOTAL: " + sum);
+                Double max = rs.getDouble("MAX(PRICE)");
+                Double min = rs.getDouble("MIN(PRICE)");
+                Double sum = rs.getDouble("totalVolume");
+                stockInfo myStock = new stockInfo(symbol, max, min, sum);
+                stockInfoArrayList.add(myStock);
             }
             conn.close();
         } catch (SQLException e) {
