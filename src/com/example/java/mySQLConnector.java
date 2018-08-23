@@ -71,41 +71,23 @@ public class mySQLConnector {
 
     public static void queryMax(String inputDate) throws ParseException {
         Connection conn = getConnection();
-        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        java.util.Date formatDate = format.parse(inputDate);
-        java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
-        System.out.println(sqlDate);
-        String query = "SELECT max(price), min(price), sum(price) from stockTable WHERE date = " + inputDate;
-        executeQuery(conn, query);
-
-    }
-
-    private static void executeQuery(Connection conn, String query) {
+        String query = "SELECT max(price), min(price), sum(price) from stockTable WHERE date = ?";
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            java.util.Date formatDate = format.parse(inputDate);
+            java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
+            stmt.setDate(1, sqlDate);
             ResultSet rs = stmt.executeQuery();
-            String output = null;
-            if(rs.next())
-                output = rs.getString(1);
-            System.out.println(output);
-            myStock.setMax(Double.valueOf(output));
+            if (rs.next()) {
+                String max = rs.getString(1);
+                String min = rs.getString(2);
+                String sum = rs.getString(3);
+                System.out.println("MAX: " + max + " MIN : " + min + " SUM: " + sum);
+            }
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-    public static void queryMin() {
-        Connection conn = getConnection();
-        String query = "SELECT MIN(price) from stocktable" +
-                "WHERE date = \"2018-06-22\";";
-        executeQuery(conn, query);
-    }
-
-    public static void querySum() {
-        Connection conn = getConnection();
-        String query = "SELECT SUM(price) from stocktable" +
-                "WHERE date = \"2018-06-22\";";
-        executeQuery(conn, query);
     }
 
 }
