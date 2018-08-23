@@ -37,11 +37,9 @@ public class JSONParser {
                 String date = jsonObject.getString("date");
                 MySQLConnector.insertRow(symbol, price, date, volume);
             }
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException | JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
             e.printStackTrace();
         }
     }

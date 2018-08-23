@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ab8641f-109b-4f27-a4ec-2e7216ce7a20" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/example/java/jsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/jsonParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/java/MySQLConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/MySQLConnector.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,14 +72,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6136" />
+          <entry key="java" value="6154" />
           <entry key="sql" value="8" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6136" />
+          <entry key="JAVA" value="6154" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="8" />
         </counts>
@@ -93,28 +92,29 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/example/java/mySQLConnector.java">
+        <entry file="file://$PROJECT_DIR$/src/com/example/java/MySQLConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="402">
+              <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#540#551#0" expanded="true" />
+                <element signature="e#545#556#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/java/stockInfo.java">
+        <entry file="file://$PROJECT_DIR$/src/com/example/java/StockInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+            <state relative-caret-position="300">
+              <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
               <folding>
                 <element signature="e#337#338#0" expanded="true" />
                 <element signature="e#355#356#0" expanded="true" />
                 <element signature="e#412#413#0" expanded="true" />
                 <element signature="e#447#448#0" expanded="true" />
+                <element signature="e#457#458#0" expanded="true" />
                 <element signature="e#483#484#0" expanded="true" />
                 <element signature="e#300#301#0" expanded="true" />
                 <element signature="e#332#333#0" expanded="true" />
@@ -132,10 +132,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/example/java/jsonParser.java">
+        <entry file="file://$PROJECT_DIR$/src/com/example/java/JSONParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+            <state relative-caret-position="450">
+              <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -173,9 +173,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/stockInfo.java" />
-        <option value="$PROJECT_DIR$/src/com/example/java/stockInfo.java" />
-        <option value="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" />
         <option value="$PROJECT_DIR$/src/com/example/java/jsonParser.java" />
+        <option value="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" />
+        <option value="$PROJECT_DIR$/src/com/example/java/stockInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/example/java/JSONParser.java" />
+        <option value="$PROJECT_DIR$/src/com/example/java/MySQLConnector.java" />
       </list>
     </option>
   </component>
@@ -239,7 +241,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535041354380" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535043472705" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -323,12 +325,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534947941386</updated>
-      <workItem from="1534947942723" duration="30614000" />
+      <workItem from="1534947942723" duration="32672000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30614000" />
+    <option name="totallyTimeSpent" value="32672000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="0" width="1920" height="1080" extended-state="0" />
@@ -357,7 +359,7 @@
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
       <window_info anchor="right" id="Maven Projects" order="1" />
-      <window_info anchor="right" id="Database" order="2" visible="true" weight="0.21299255" />
+      <window_info anchor="right" id="Database" order="2" weight="0.21299255" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Theme Preview" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
@@ -380,15 +382,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f1208821-bd07-4ec5-a6bb-837a74898e28/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_181.jdk/Contents/Home/src.zip!/java/sql/Date.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="42" column="13" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/f1208821-bd07-4ec5-a6bb-837a74898e28/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="das://f1208821-bd07-4ec5-a6bb-837a74898e28/schema/stock/table/stocktable">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
@@ -397,25 +399,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/java/jsonParser.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/java/JSONParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        <state relative-caret-position="450">
+          <caret line="30" column="47" selection-start-line="30" selection-start-column="47" selection-end-line="30" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/java/stockInfo.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/java/StockInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="28" lean-forward="true" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        <state relative-caret-position="300">
+          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
           <folding>
             <element signature="e#337#338#0" expanded="true" />
             <element signature="e#355#356#0" expanded="true" />
             <element signature="e#412#413#0" expanded="true" />
             <element signature="e#447#448#0" expanded="true" />
+            <element signature="e#457#458#0" expanded="true" />
             <element signature="e#483#484#0" expanded="true" />
             <element signature="e#300#301#0" expanded="true" />
             <element signature="e#332#333#0" expanded="true" />
@@ -431,13 +434,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/java/mySQLConnector.java">
+    <entry file="file://$PROJECT_DIR$/src/com/example/java/MySQLConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
+        <state relative-caret-position="402">
+          <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#540#551#0" expanded="true" />
+            <element signature="e#545#556#0" expanded="true" />
           </folding>
         </state>
       </provider>

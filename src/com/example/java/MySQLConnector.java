@@ -14,32 +14,30 @@ public class MySQLConnector {
 
     public static void main(String[] args) throws ParseException {
         getConnection();
-        queryInfo("2018-06-25");
+        queryInfo("2018-06-22");
 
-        for (int i = 0; i < stockInfoArrayList.size(); i++) {
-            System.out.print("SYMBOL: " + stockInfoArrayList.get(i).symbol + " ");
-            System.out.print("MAX: " + stockInfoArrayList.get(i).max + " ");
-            System.out.print("MIN: " + stockInfoArrayList.get(i).min + " ");
-            System.out.print("TOTAL VOLUME: " + stockInfoArrayList.get(i).sum + " " + "\n");
+        for (StockInfo aStockInfoArrayList : stockInfoArrayList) {
+            System.out.print("SYMBOL: " + aStockInfoArrayList.symbol + " ");
+            System.out.print("MAX: " + aStockInfoArrayList.max + " ");
+            System.out.print("MIN: " + aStockInfoArrayList.min + " ");
+            System.out.print("TOTAL VOLUME: " + aStockInfoArrayList.sum + " " + "\n");
         }
     }
 
 
-    public static Connection getConnection() {
+    private static Connection getConnection() {
         Connection conn = null;
         try {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return conn;
     }
 
 
-    public static void insertRow(String symbol, Double price, String dateString, Integer volume) {
+    static void insertRow(String symbol, Double price, String dateString, Integer volume) {
         Connection conn = getConnection();
         String query = " insert into stockTable (symbol, price, date, volume) "
                + "values (?, ?, ?, ?)";
@@ -53,15 +51,13 @@ public class MySQLConnector {
             stmt.setDouble(4, volume);
             stmt.execute();
             conn.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
+        } catch (SQLException | ParseException e) {
             e.printStackTrace();
         }
     }
 
 
-    public static void queryInfo(String inputDate) throws ParseException {
+    private static void queryInfo(String inputDate) throws ParseException {
         Connection conn = getConnection();
         String query = "SELECT DISTINCT\n" +
                 "\tsymbol, max(price), min(price), round(sum(volume)) AS totalVolume\n" +
