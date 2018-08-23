@@ -13,8 +13,7 @@ public class mySQLConnector {
 
     public static void main(String[] args) throws ParseException {
         getConnection();
-        //refreshTable();
-        queryMax("2018-06-22");
+        queryInfo("2018-06-22");
     }
 
 
@@ -40,11 +39,9 @@ public class mySQLConnector {
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, symbol);
             stmt.setDouble(2, price);
-
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date formatDate = format.parse(dateString);
             java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
-
             stmt.setDate(3, sqlDate);
             stmt.setDouble(4, volume);
             stmt.execute();
@@ -55,6 +52,7 @@ public class mySQLConnector {
             e.printStackTrace();
         }
     }
+
 
     public static void refreshTable() {
         Connection conn = getConnection();
@@ -68,10 +66,16 @@ public class mySQLConnector {
     }
 
 
-
-    public static void queryMax(String inputDate) throws ParseException {
+    public static void queryInfo(String inputDate) throws ParseException {
         Connection conn = getConnection();
-        String query = "SELECT max(price), min(price), sum(price) from stockTable WHERE date = ?";
+        String query = "SELECT DISTINCT\n" +
+                "\tsymbol, max(price), min(price), round(sum(price))\n" +
+                "FROM\n" +
+                "\tstockTable\n" +
+                "WHERE\n" +
+                "\tdate= ? \n" +
+                "GROUP BY\n" +
+                "\tsymbol;";
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             java.util.Date formatDate = format.parse(inputDate);
@@ -79,9 +83,11 @@ public class mySQLConnector {
             stmt.setDate(1, sqlDate);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                String max = rs.getString(1);
-                String min = rs.getString(2);
-                String sum = rs.getString(3);
+                String symbol = rs.getString(1);
+                String max = rs.getString(2);
+                String min = rs.getString(3);
+                String sum = rs.getString(4)
+
                 System.out.println("MAX: " + max + " MIN : " + min + " SUM: " + sum);
             }
             conn.close();

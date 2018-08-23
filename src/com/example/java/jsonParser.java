@@ -9,10 +9,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class jsonParser {
     static final String URL = "https://bootcamp-training-files.cfapps.io/week1/week1-stocks.json";
