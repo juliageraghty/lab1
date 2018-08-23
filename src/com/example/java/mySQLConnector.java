@@ -69,11 +69,11 @@ public class mySQLConnector {
     public static void queryInfo(String inputDate) throws ParseException {
         Connection conn = getConnection();
         String query = "SELECT DISTINCT\n" +
-                "\tsymbol, max(price), min(price), round(sum(price))\n" +
+                "\tsymbol, max(price), min(price), round(sum(volume)) AS totalVolume\n" +
                 "FROM\n" +
                 "\tstockTable\n" +
                 "WHERE\n" +
-                "\tdate= ? \n" +
+                "\tdate= ?\n" +
                 "GROUP BY\n" +
                 "\tsymbol;";
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -82,13 +82,12 @@ public class mySQLConnector {
             java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
             stmt.setDate(1, sqlDate);
             ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                String symbol = rs.getString(1);
-                String max = rs.getString(2);
-                String min = rs.getString(3);
-                String sum = rs.getString(4)
-
-                System.out.println("MAX: " + max + " MIN : " + min + " SUM: " + sum);
+            while (rs.next()) {
+                String symbol = rs.getString("SYMBOL");
+                String max = rs.getString("MAX(PRICE)");
+                String min = rs.getString("MIN(PRICE)");
+                String sum = rs.getString("totalVolume");
+                System.out.println("SYMBOL: " + symbol + " MAX: " + max + " MIN : " + min + " TOTAL: " + sum);
             }
             conn.close();
         } catch (SQLException e) {

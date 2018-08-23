@@ -1,14 +1,24 @@
 package com.example.java;
 
 public class stockInfo {
+    String symbol;
     Double max;
     Double min;
     Double sum;
 
-    public stockInfo(Double max, Double min, Double sum) {
+    public stockInfo(String symbol, Double max, Double min, Double sum) {
+        this.symbol = symbol;
         this.max = max;
         this.min = min;
         this.sum = sum;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String input) {
+        this.symbol = input;
     }
 
     public Double getMax() {
