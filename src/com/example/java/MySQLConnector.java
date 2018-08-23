@@ -10,7 +10,7 @@ public class MySQLConnector {
     static final String DB_URL = "jdbc:mysql://localhost:3306/stock?useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
     static final String USER = "root";
     static final String PASS = "solstice123";
-    static final ArrayList<stockInfo> stockInfoArrayList = new ArrayList<stockInfo>();
+    static final ArrayList<StockInfo> stockInfoArrayList = new ArrayList<StockInfo>();
 
     public static void main(String[] args) throws ParseException {
         getConnection();
@@ -82,7 +82,7 @@ public class MySQLConnector {
                 Double max = rs.getDouble("MAX(PRICE)");
                 Double min = rs.getDouble("MIN(PRICE)");
                 Double sum = rs.getDouble("totalVolume");
-                stockInfo myStock = new stockInfo(symbol, max, min, sum);
+                StockInfo myStock = new StockInfo(symbol, max, min, sum);
                 stockInfoArrayList.add(myStock);
             }
             conn.close();

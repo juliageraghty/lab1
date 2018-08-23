@@ -35,7 +35,7 @@ public class JSONParser {
                 Double price= jsonObject.getDouble("price");
                 int volume=jsonObject.getInt("volume");
                 String date = jsonObject.getString("date");
-                mySQLConnector.insertRow(symbol, price, date, volume);
+                MySQLConnector.insertRow(symbol, price, date, volume);
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
