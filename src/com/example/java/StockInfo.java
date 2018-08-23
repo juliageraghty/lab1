@@ -1,12 +1,12 @@
 package com.example.java;
 
-public class stockInfo {
+public class StockInfo {
     String symbol;
     Double max;
     Double min;
     Double sum;
 
-    public stockInfo(String symbol, Double max, Double min, Double sum) {
+    public StockInfo(String symbol, Double max, Double min, Double sum) {
         this.symbol = symbol;
         this.max = max;
         this.min = min;

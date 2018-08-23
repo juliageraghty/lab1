@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ab8641f-109b-4f27-a4ec-2e7216ce7a20" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/com/example/java/jsonParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/jsonParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -72,14 +73,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6032" />
+          <entry key="java" value="6136" />
           <entry key="sql" value="8" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6032" />
+          <entry key="JAVA" value="6136" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="8" />
         </counts>
@@ -94,8 +95,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/java/mySQLConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+            <state relative-caret-position="221">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#540#551#0" expanded="true" />
@@ -133,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/java/jsonParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="570">
+              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -172,9 +173,9 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/stockInfo.java" />
-        <option value="$PROJECT_DIR$/src/com/example/java/jsonParser.java" />
         <option value="$PROJECT_DIR$/src/com/example/java/stockInfo.java" />
         <option value="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" />
+        <option value="$PROJECT_DIR$/src/com/example/java/jsonParser.java" />
       </list>
     </option>
   </component>
@@ -238,7 +239,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535040436806" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535041226654" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -307,12 +308,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534947941386</updated>
-      <workItem from="1534947942723" duration="29763000" />
+      <workItem from="1534947942723" duration="30614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29763000" />
+    <option name="totallyTimeSpent" value="30614000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="0" width="1920" height="1080" extended-state="0" />
@@ -383,8 +384,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/java/jsonParser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <state relative-caret-position="570">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -417,8 +418,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/java/mySQLConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="8" lean-forward="true" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+        <state relative-caret-position="221">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#540#551#0" expanded="true" />

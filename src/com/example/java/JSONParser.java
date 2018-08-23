@@ -10,7 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-public class jsonParser {
+public class JSONParser {
     static final String URL = "https://bootcamp-training-files.cfapps.io/week1/week1-stocks.json";
 
     public static void main(String[] args) {
@@ -21,8 +21,7 @@ public class jsonParser {
             System.out.println("\nSending 'GET' request to URL : " + URL);
             System.out.println("Response Code : " + responseCode);
 
-            BufferedReader in =new BufferedReader(
-                    new InputStreamReader(con.getInputStream()));
+            BufferedReader in =new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
             while ((inputLine = in.readLine()) != null) {
@@ -38,7 +37,6 @@ public class jsonParser {
                 String date = jsonObject.getString("date");
                 mySQLConnector.insertRow(symbol, price, date, volume);
             }
-
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {

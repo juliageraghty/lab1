@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
-public class mySQLConnector {
+public class MySQLConnector {
     static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
     static final String DB_URL = "jdbc:mysql://localhost:3306/stock?useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
     static final String USER = "root";
@@ -14,7 +14,7 @@ public class mySQLConnector {
 
     public static void main(String[] args) throws ParseException {
         getConnection();
-        queryInfo("2018-06-22");
+        queryInfo("2018-06-25");
 
         for (int i = 0; i < stockInfoArrayList.size(); i++) {
             System.out.print("SYMBOL: " + stockInfoArrayList.get(i).symbol + " ");
@@ -27,7 +27,6 @@ public class mySQLConnector {
 
     public static Connection getConnection() {
         Connection conn = null;
-        Statement stmt = null;
         try {
             Class.forName(JDBC_DRIVER);
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -57,18 +56,6 @@ public class mySQLConnector {
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ParseException e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    public static void refreshTable() {
-        Connection conn = getConnection();
-        String query = "DELETE from stockTable";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.execute();
-            conn.close();
-        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
