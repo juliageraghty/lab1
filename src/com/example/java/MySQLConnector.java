@@ -10,16 +10,16 @@ public class MySQLConnector {
     static final String DB_URL = "jdbc:mysql://localhost:3306/stock?useLegacyDatetimeCode=false&serverTimezone=UTC&autoReconnect=true&useSSL=false";
     static final String USER = "root";
     static final String PASS = "solstice123";
-    static final ArrayList<StockInfo> stockInfoArrayList = new ArrayList<StockInfo>();
+    static final ArrayList<StockInfo> stockInfoArrayList = new ArrayList<>();
 
     public static void main(String[] args) throws ParseException {
         getConnection();
-        queryInfo("2018-06-22");
+        queryByDay("2018-06-25");
 
         for (StockInfo aStockInfoArrayList : stockInfoArrayList) {
             System.out.print("SYMBOL: " + aStockInfoArrayList.symbol + " ");
-            System.out.print("MAX: " + aStockInfoArrayList.max + " ");
-            System.out.print("MIN: " + aStockInfoArrayList.min + " ");
+            System.out.print("HIGHEST: " + aStockInfoArrayList.max + " ");
+            System.out.print("LOWEST: " + aStockInfoArrayList.min + " ");
             System.out.print("TOTAL VOLUME: " + aStockInfoArrayList.sum + " " + "\n");
         }
     }
@@ -44,7 +44,7 @@ public class MySQLConnector {
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, symbol);
             stmt.setDouble(2, price);
-            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
             java.util.Date formatDate = format.parse(dateString);
             java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
             stmt.setDate(3, sqlDate);
@@ -56,8 +56,7 @@ public class MySQLConnector {
         }
     }
 
-
-    private static void queryInfo(String inputDate) throws ParseException {
+    private static void queryByDay(String inputDate) throws ParseException {
         Connection conn = getConnection();
         String query = "SELECT DISTINCT\n" +
                 "\tsymbol, max(price), min(price), round(sum(volume)) AS totalVolume\n" +
@@ -73,17 +72,21 @@ public class MySQLConnector {
             java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
             stmt.setDate(1, sqlDate);
             ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                String symbol = rs.getString("SYMBOL");
-                Double max = rs.getDouble("MAX(PRICE)");
-                Double min = rs.getDouble("MIN(PRICE)");
-                Double sum = rs.getDouble("totalVolume");
-                StockInfo myStock = new StockInfo(symbol, max, min, sum);
-                stockInfoArrayList.add(myStock);
-            }
+            saveStockInfo(rs);
             conn.close();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    private static void saveStockInfo(ResultSet rs) throws SQLException {
+        while (rs.next()) {
+            String symbol = rs.getString("SYMBOL");
+            Double max = rs.getDouble("MAX(PRICE)");
+            Double min = rs.getDouble("MIN(PRICE)");
+            Double sum = rs.getDouble("totalVolume");
+            StockInfo myStock = new StockInfo(symbol, max, min, sum);
+            stockInfoArrayList.add(myStock);
         }
     }
 

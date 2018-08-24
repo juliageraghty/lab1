@@ -20,7 +20,6 @@ public class JSONParser {
             int responseCode = con.getResponseCode();
             System.out.println("\nSending 'GET' request to URL : " + URL);
             System.out.println("Response Code : " + responseCode);
-
             BufferedReader in =new BufferedReader(new InputStreamReader(con.getInputStream()));
             String inputLine;
             StringBuffer response = new StringBuffer();
