@@ -58,6 +58,7 @@ public class MySQLConnector {
         }
     }
 
+
     private static void queryByDay(String inputDate) throws ParseException {
         Connection conn = getConnection();
         String query = "SELECT DISTINCT\n" +
@@ -80,6 +81,7 @@ public class MySQLConnector {
             e.printStackTrace();
         }
     }
+
 
     private static void saveStockInfo(ResultSet rs) throws SQLException {
         while (rs.next()) {
