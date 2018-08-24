@@ -12,9 +12,11 @@ public class MySQLConnector {
     static final String PASS = "solstice123";
     static final ArrayList<StockInfo> stockInfoArrayList = new ArrayList<>();
 
+    //too many statics get rid of them with a Main class
+
     public static void main(String[] args) throws ParseException {
         getConnection();
-        queryByDay("2018-06-25");
+        queryByDate("2018-06-25");
 
         for (StockInfo aStockInfoArrayList : stockInfoArrayList) {
             System.out.print("SYMBOL: " + aStockInfoArrayList.symbol + " ");
@@ -59,7 +61,7 @@ public class MySQLConnector {
     }
 
 
-    private static void queryByDay(String inputDate) throws ParseException {
+    private static void queryByDate(String inputDate) throws ParseException {
         Connection conn = getConnection();
         String query = "SELECT DISTINCT\n" +
                 "\tsymbol, max(price), min(price), round(sum(volume)) AS totalVolume\n" +
