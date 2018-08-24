@@ -5,6 +5,7 @@ public class StockInfo {
     Double max;
     Double min;
     Double sum;
+    Double closing;
 
     public StockInfo(String symbol, Double max, Double min, Double sum) {
         this.symbol = symbol;
@@ -44,5 +45,6 @@ public class StockInfo {
     public void setSum(Double input) {
         this.sum = input;
     }
+
 
 }

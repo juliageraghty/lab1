@@ -39,16 +39,18 @@ public class MySQLConnector {
 
     static void insertRow(String symbol, Double price, String dateString, Integer volume) {
         Connection conn = getConnection();
-        String query = " insert into stockTable (symbol, price, date, volume) "
-               + "values (?, ?, ?, ?)";
+        String query = " insert into stockTable (symbol, price, date, volume, timestamp) "
+               + "values (?, ?, ?, ?, ?)";
         try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, symbol);
             stmt.setDouble(2, price);
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS");
             java.util.Date formatDate = format.parse(dateString);
             java.sql.Date sqlDate = new java.sql.Date(formatDate.getTime());
+            Timestamp timestamp = new java.sql.Timestamp(formatDate.getTime());
             stmt.setDate(3, sqlDate);
             stmt.setDouble(4, volume);
+            stmt.setTimestamp(5,timestamp);
             stmt.execute();
             conn.close();
         } catch (SQLException | ParseException e) {

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ab8641f-109b-4f27-a4ec-2e7216ce7a20" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/com/example/java/JSONParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/JSONParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/java/MySQLConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/MySQLConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/example/java/StockInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/java/StockInfo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -60,6 +60,7 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="java" value="6" />
+          <entry key="md" value="1" />
           <entry key="sql" value="1" />
           <entry key="stocktable" value="1" />
         </counts>
@@ -68,19 +69,20 @@
         <counts>
           <entry key="Database Element" value="1" />
           <entry key="JAVA" value="6" />
+          <entry key="Markdown" value="1" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="6501" />
+          <entry key="java" value="7168" />
           <entry key="sql" value="8" />
           <entry key="txt" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6501" />
+          <entry key="JAVA" value="7168" />
           <entry key="PLAIN_TEXT" value="6" />
           <entry key="SQL" value="8" />
         </counts>
@@ -95,8 +97,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/java/MySQLConnector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1215">
-              <caret line="81" column="41" lean-forward="true" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+            <state relative-caret-position="592">
+              <caret line="133" column="56" selection-start-line="133" selection-start-column="56" selection-end-line="133" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -107,8 +109,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/java/StockInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+            <state relative-caret-position="637">
+              <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
               <folding>
                 <element signature="e#337#338#0" expanded="true" />
                 <element signature="e#355#356#0" expanded="true" />
@@ -126,6 +128,10 @@
                 <element signature="e#529#530#0" expanded="true" />
                 <element signature="e#569#570#0" expanded="true" />
                 <element signature="e#601#602#0" expanded="true" />
+                <element signature="e#939#940#0" expanded="true" />
+                <element signature="e#969#970#0" expanded="true" />
+                <element signature="e#1013#1014#0" expanded="true" />
+                <element signature="e#1043#1044#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -134,8 +140,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/example/java/JSONParser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+            <state relative-caret-position="435">
+              <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -177,6 +183,7 @@
         <option value="$PROJECT_DIR$/src/com/example/java/mySQLConnector.java" />
         <option value="$PROJECT_DIR$/src/com/example/java/stockInfo.java" />
         <option value="$PROJECT_DIR$/src/com/example/java/JSONParser.java" />
+        <option value="$PROJECT_DIR$/src/com/example/java/StockInfo.java" />
         <option value="$PROJECT_DIR$/src/com/example/java/MySQLConnector.java" />
       </list>
     </option>
@@ -241,7 +248,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535117728413" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1535125406335" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -340,12 +347,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534947941386</updated>
-      <workItem from="1534947942723" duration="39902000" />
+      <workItem from="1534947942723" duration="44314000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39902000" />
+    <option name="totallyTimeSpent" value="44314000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="0" width="1920" height="1080" extended-state="0" />
@@ -414,10 +421,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor />
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/example/java/JSONParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="12" lean-forward="true" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/java/StockInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="28" lean-forward="true" selection-start-line="20" selection-start-column="28" selection-end-line="20" selection-end-column="28" />
+        <state relative-caret-position="637">
+          <caret line="54" column="23" selection-start-line="54" selection-start-column="23" selection-end-line="54" selection-end-column="23" />
           <folding>
             <element signature="e#337#338#0" expanded="true" />
             <element signature="e#355#356#0" expanded="true" />
@@ -435,24 +460,18 @@
             <element signature="e#529#530#0" expanded="true" />
             <element signature="e#569#570#0" expanded="true" />
             <element signature="e#601#602#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/example/java/JSONParser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#939#940#0" expanded="true" />
+            <element signature="e#969#970#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/java/MySQLConnector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1215">
-          <caret line="81" column="41" lean-forward="true" selection-start-line="81" selection-start-column="41" selection-end-line="81" selection-end-column="41" />
+        <state relative-caret-position="592">
+          <caret line="133" column="56" selection-start-line="133" selection-start-column="56" selection-end-line="133" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
